@@ -7,6 +7,10 @@
     --color-5: #4B5267;
     --color-whiteish: #FFF1FA;
     --stats-color: #ede5eb;
+
+    --gradient-2: #553489;
+    --gradient-3: #3f216f;
+
     /* Blues */
     /* --color-primary: #2D898B;
     --color-secondary: #C1DFF0;
@@ -146,7 +150,7 @@ a:hover {
     filter: invert(15%) sepia(8%) saturate(5142%) hue-rotate(210deg) brightness(87%) contrast(88%);
 }
 .about-me-container::before {
-    background-color: var(--color-secondary);
+    background-image: linear-gradient(var(--color-secondary), var(--gradient-2));
     content: "";
     height: 100%;
     position: absolute;
@@ -161,6 +165,45 @@ a:hover {
     margin-right: var(--about-me-margin-size);
     padding: 4em 6.25em;
     position: relative;
+}
+.about-me-container .sidebar {
+    position: absolute;
+    top: 1em;
+    right: 0;
+    transform: translateX(100%);
+    width: 20em;
+}
+.about-me-container .sidebar img{
+    width: 14em;
+    border-radius: 15%;
+    border-width: 0.2em;
+    border-style: solid;
+    border-color: var(--color-primary);
+}
+.about-me-container .sidebar .top-image {
+    padding-right: 1em;
+    padding-left: 4.5em;
+    padding-bottom: 0.5em;
+    padding-top: 0.5em;
+    transform: translateY(0.5em);
+    rotate: 15deg;
+}
+.about-me-container .sidebar .middle-image {
+    padding-right: 1em;
+    padding-left: 1.5em;
+    padding-bottom: 0.5em;
+    padding-top: 0em;
+    transform: translateY(-1.5em);
+    rotate: -10deg;
+}
+.about-me-container .sidebar .bottom-image {
+    width: 9em;
+    transform: translateY(-5em);
+    padding-right: 1em;
+    padding-left: 9em;
+    padding-bottom: 0.5em;
+    padding-top: 0em;
+    rotate: 5deg;
 }
 .about-me-container .header-container {
     display: flex;
@@ -195,7 +238,7 @@ a:hover {
 }
 
 .meet-container::before {
-    background-color: var(--color-secondary);
+    background-image: linear-gradient(var(--gradient-2), var(--gradient-3));
     content: "";
     height: 100%;
     position: absolute;
@@ -210,6 +253,31 @@ a:hover {
     margin-right: var(--meet-margin-size);
     padding: 4em 10em;
     position: relative;
+}
+.meet-container .sidebar {
+    position: absolute;
+    top: 1em;
+    right: 0;
+    transform: translateX(100%);
+    width: 20em;
+}
+.meet-container .sidebar img {
+    width: 7em;
+    border-radius: 50%;
+    border-width: 0.2em;
+    border-style: solid;
+    border-color: var(--color-secondary);
+}
+.meet-container .sidebar .pfp {
+    padding-right: 0em;
+    padding-left: 2.5em;
+    padding-bottom: 0em;
+    padding-top: 8em;
+    /* transform: translateY(0.5em); */
+    /* rotate: 15deg; */
+}
+.meet-container .sidebar img:hover {
+    border-color: var(--color-whiteish)
 }
 .meet-container .line {
     background: linear-gradient(90deg,var(--color-primary),var(--color-secondary));
@@ -256,7 +324,7 @@ a:hover {
 
 
 .contact-container::before {
-    background-color: var(--color-secondary);
+    background-image: linear-gradient(var(--gradient-3), var(--color-primary));
     content: "";
     height: 100%;
     position: absolute;
@@ -264,13 +332,29 @@ a:hover {
     top: 0;
     transform: translateX(100%);
     width: var(--contact-margin-size);
-  }
+}
 .contact-container {
     --contact-margin-size: 20em;
     margin-right: 12.5em;
     margin-right: var(--contact-margin-size);
     padding: 4em 6.25em;
     position: relative;
+}
+.contact-container .sidebar {
+    position: absolute;
+    top: 1em;
+    right: 0;
+    transform: translateX(100%);
+    width: 20em;
+}
+.contact-container iframe {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    transform: translateX(100%);
+    width: 20em;
+    margin: 0;
+    padding: 0;
 }
 .contact-container .header-container {
     display: flex;
