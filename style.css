@@ -51,7 +51,7 @@ a:hover {
     height: calc(100vh);
     box-sizing: border-box;
 }
-
+    
 .front-heading-container .header-container {
     align-items: center;
     background-color: var(--color-primary);
@@ -108,21 +108,21 @@ a:hover {
 .stats-container .container {
     grid-gap: 5em;
     display: grid;
-    gap: 1em;
-    grid-template-columns: repeat(4,1fr);
+    gap: 5em;
+    grid-template-columns: repeat(2,1fr); /* This is the amount of mod panels */
     width: 100%;
   }
 .count-container {
     background-color: var(--color-whiteish);
     border-radius: 1.25em;
     box-shadow: var(--box-shadow);
-    padding: 2em;
+    padding: 4em;
     text-align: center;
 }
 .count-container .svg {
     height: 7.8125em;
     width: 7.8125em;
-  }
+}
 .count-container h1 {
     color: var(--color-secondary);
     font-size: 2.5em;
