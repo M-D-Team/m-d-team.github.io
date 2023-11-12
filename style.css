@@ -247,15 +247,52 @@ a:hover {
     content: "";
     height: 100%;
     position: absolute;
-    border: none;
-    padding: 0;
-    font-family: 'Calibri', monospace;
-    font-size: 25px;
-    color: rgb(0, 0, 0);
-    cursor:pointer;
-    margin-right: 75px;
-    margin-top: 45px;
-    background-color:white;
-    text-decoration: none;
-    list-style: none;
+    right: 0;
+    top: 0;
+    transform: translateX(100%);
+    width: var(--contact-margin-size);
   }
+.contact-container {
+    --contact-margin-size: 20em;
+    margin-right: 12.5em;
+    margin-right: var(--contact-margin-size);
+    padding: 4em 6.25em;
+    position: relative;
+}
+.contact-container .header-container {
+    display: flex;
+    gap: 1em;
+    margin-bottom: 2em;
+}
+.contact-container .header-container h1 {
+    padding-left: 0em;
+    position: relative;
+}
+.contact-container .header-container h1 span {
+    color: var(--color-primary);
+  }
+.contact-container .header-container .before-line {
+    background: linear-gradient(90deg,var(--color-primary),var(--color-secondary));
+    flex: 1;
+    height: 2px;
+    margin: auto;
+}
+.contact-container .header-container .after-line {
+    background: linear-gradient(90deg,var(--color-secondary),var(--color-primary));
+    flex: 1;
+    height: 2px;
+    margin: auto;
+}
+.contact-container .content {
+    grid-gap: 1em;
+    display: grid;
+    font-family: "Overpass";
+    gap: 1em;
+    padding-left: 4em;
+}
+.contact-container .content p {
+    font-size: 1.25em;
+}
+.contact-container .content b {
+    color: var(--color-primary)
+}
