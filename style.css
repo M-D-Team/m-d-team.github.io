@@ -133,6 +133,18 @@ a:hover {
     font-size: 1.125em;
     font-weight: 500;
 }
+.count-container .links {
+    position: relative;
+}
+.count-container .links a img {
+    height: 1.125em;
+    width: 1.125em;
+    transform: translateY(0.25em);
+    filter: invert(55%) sepia(9%) saturate(3429%) hue-rotate(219deg) brightness(78%) contrast(92%);
+}
+.count-container .links a img:hover {
+    filter: invert(15%) sepia(8%) saturate(5142%) hue-rotate(210deg) brightness(87%) contrast(88%);
+}
 .about-me-container::before {
     background-color: var(--color-secondary);
     content: "";
