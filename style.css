@@ -33,6 +33,7 @@ body {
     font-family: Nunito,Arial,sans-serif;
     font-size: max(8px,1.25vw);
     margin: 0;
+    overflow-x: clip;
 }
 h1, h2, h3, h4, h5, h6 {
     font-family: Poppins,Arial,sans-serif;
@@ -258,8 +259,10 @@ a:hover {
     position: absolute;
     top: 1em;
     right: 0;
+    margin: 0;
     transform: translateX(100%);
     width: 20em;
+    overflow: hidden;
 }
 .meet-container .sidebar img {
     width: 7em;
@@ -353,8 +356,6 @@ a:hover {
     right: 0;
     transform: translateX(100%);
     width: 20em;
-    margin: 0;
-    padding: 0;
 }
 .contact-container .header-container {
     display: flex;
