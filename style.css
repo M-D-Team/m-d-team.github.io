@@ -269,6 +269,7 @@ a:hover {
     border-radius: 50%;
     border-width: 0.2em;
     border-style: solid;
+    transition: transform 0.5s ease;
     border-color: var(--color-secondary);
 }
 .meet-container .sidebar .pfp {
@@ -278,6 +279,11 @@ a:hover {
     padding-top: 8em;
     /* transform: translateY(0.5em); */
     /* rotate: 15deg; */
+}
+.meet-container .sidebar .pfp img:hover,
+.meet-container .sidebar .pfp img:focus {
+cursor: pointer;
+transform: scale(1.1);
 }
 .meet-container .sidebar img:hover {
     border-color: var(--color-whiteish)
