@@ -7,6 +7,7 @@
     --color-5: #4B5267;
     --color-whiteish: #FFF1FA;
     --stats-color: #ede5eb;
+    --team-card-color: var(--stats-color);
 
     --gradient-2: #553489;
     --gradient-3: #3f216f;
@@ -330,7 +331,51 @@ transform: scale(1.1);
     text-decoration: none;
     color: var(--color-primary)
 }
+.meet-container .content .team-title {
+    color: var(--color-primary)
+}
 
+.meet-container .section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.meet-container .card { 
+    display: flex;
+    border-radius: 1000px;
+    width: 300px;
+    overflow: hidden;
+    transition: 0.2s;
+    height: 90px;
+    cursor: pointer;
+    background-color: var(--team-card-color);
+}
+.meet-container .card:hover,.meet-container .card:focus {
+    transform: scale(1.05);
+}
+.meet-container .card img {
+    height: 100%;
+    max-width: 100%;
+    object-fit: cover;
+    border-radius: inherit;
+}
+.meet-container .card .text {
+    padding-left: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: var(--color-secondary)
+}
+.meet-container .card .text .name {
+    font-size: 20px;
+    font-weight: 700;
+}
+.meet-container .card .text .role {
+    font-size: 16px;
+    font-weight: 200;
+}
 
 .contact-container::before {
     background-image: linear-gradient(var(--gradient-3), var(--color-primary));
