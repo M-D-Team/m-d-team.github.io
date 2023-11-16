@@ -1,16 +1,5 @@
 :root {
     /* Purple and Pinks*/
-    --color-primary: #2E294E;
-    --color-secondary: #8661C1;
-    --color-3: #88CCF1;
-    --color-4: #EFBCD5;
-    --color-5: #4B5267;
-    --color-whiteish: #FFF1FA;
-    --stats-color: #ede5eb;
-    --team-card-color: var(--stats-color);
-
-    --gradient-2: #553489;
-    --gradient-3: #3f216f;
 
     /* Blues */
     /* --color-primary: #2D898B;
@@ -30,11 +19,81 @@
     --logo-url: url("./img/logo.png");
     --whitespace-bg: url("./img/whitespace-bg.jpg") 
 }
+:root[data-theme="theme-light"] {
+    --color-primary: #2E294E;
+    --color-secondary: #8661C1;
+    --color-3: #88CCF1;
+    --color-4: #EFBCD5;
+    --color-5: #4B5267;
+    --color-whiteish: #FFF1FA;
+
+    --stats-color: #ede5eb;
+    --stats-card-color: #FFF1FA;
+    --stats-card-header: var(--color-secondary);
+    --stats-card-filter-1: invert(42%) sepia(46%) saturate(648%) hue-rotate(221deg) brightness(95%) contrast(90%);
+    --stats-card-filter-2: invert(14%) sepia(12%) saturate(3302%) hue-rotate(209deg) brightness(94%) contrast(88%);
+    --stats-card-a-1: var(--color-secondary);
+    --stats-card-a-2: var(--color-primary);
+
+    --team-card-color: var(--color-whiteish);
+    --theme-switcher-color: var(--color-secondary);
+    --text-color: black;
+    --body-color: white;
+    --bold-color: var(--stats-card-header);
+    --card-text-color: var(--color-secondary);
+
+    --line-color-1: var(--bold-color);
+    --line-color-2: var(--team-card-color);
+
+    --gradient-3: var(--color-primary);
+    --gradient-2: #403680;
+    --gradient-1: #543883;
+    --gradient: var(--color-secondary);
+
+    --link: var(--color-secondary);
+    --link-hover: var(--color-primary);
+}
+:root[data-theme="theme-dark"] {
+    --color-primary: #2E294E;
+    --color-secondary: #8661C1;
+    --color-3: #88CCF1;
+    --color-4: #EFBCD5;
+    --color-5: #4B5267;
+    --color-whiteish: #FFF1FA;
+
+    --stats-color: #2f3b4f;
+    --stats-card-color: #42526d;
+    --stats-card-header: #61a5c2;
+    --stats-card-filter-1: invert(78%) sepia(48%) saturate(380%) hue-rotate(166deg) brightness(90%) contrast(87%);
+    --stats-card-filter-2: invert(89%) sepia(83%) saturate(4268%) hue-rotate(170deg) brightness(101%) contrast(80%);
+    --stats-card-a-1: #89c2d9;
+    --stats-card-a-2: #a9d6e5;
+
+    --team-card-color: #31415e;
+    --theme-switcher-color: var(--color-secondary);
+    --text-color: #FFF1FA;
+    --body-color: #1b263b;
+    --bold-color: var(--stats-card-header);
+    --card-text-color: #acbddf;
+
+    --line-color-1: var(--bold-color);
+    --line-color-2: var(--team-card-color);
+
+    --gradient-3: var(--line-color-1);
+    --gradient-2: var(--line-color-2);
+    --gradient-1: #224656;
+    --gradient: var(--body-color);
+
+    --link: #89c2d9;
+    --link-hover: #a9d6e5;
+}
 body {
     font-family: Nunito,Arial,sans-serif;
     font-size: max(8px,1.25vw);
     margin: 0;
     overflow-x: clip;
+    background-color: var(--body-color);
+    color: var(--text-color);
 }
 h1, h2, h3, h4, h5, h6 {
     font-family: Poppins,Arial,sans-serif;
@@ -45,12 +104,65 @@ img {--drop-shadow: 0 0.1em 0.1em rgba(0,0,0,.125);
 }
 a {
     text-decoration: none;
-    color: var(--color-secondary)
+    color: var(--link)
 }
 a:hover {
     text-decoration: none;
-    color: var(--color-primary)
+    color: var(--link-hover)
 }
+
+/* https://github.com/chaoocharles/dark-light-mode */
+.toggle-theme {
+    background: var(--theme-switcher-color);
+    height: 3rem;
+    width: 3rem;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.5s ease;
+}
+
+.toggle-theme:hover,
+.toggle-theme:focus {
+cursor: pointer;
+transform: scale(1.1);
+}
+
+.toggle-theme i {
+font-size: 2rem;
+position: absolute;
+transition: transform 0.5s ease, opacity 0.5s ease, color 0.5s ease;
+}
+
+.fa-sun {
+color: rgb(210, 216, 102);
+opacity: 0;
+transform: translateX(50px);
+}
+
+.fa-moon {
+color: rgb(216, 216, 215);
+transform: translateX(0px);
+}
+
+.checkbox {
+display: none;
+}
+
+.checkbox:checked ~ .toggle-theme .fa-sun{
+    opacity: 1;
+    transform: translateX(0px);
+}
+
+.checkbox:checked ~ .toggle-theme .fa-moon{
+    opacity: 0;
+    transform: translateX(-50px);
+}
+
 
 .front-heading-container {
     display: flex;
@@ -65,6 +177,11 @@ a:hover {
     height: 100%;
     position: relative;
     width: 75%;
+}
+.front-heading-container .header-container .theme-switcher {
+    position:absolute;
+    bottom: 1em;
+    right: 1em;
 }
 .front-heading-container .header-container .container {
     margin: auto 15.625em auto 6.25em;
@@ -119,7 +236,7 @@ a:hover {
     width: 100%;
 }
 .count-container {
-    background-color: var(--color-whiteish);
+    background-color: var(--stats-card-color);
     border-radius: 1.25em;
     box-shadow: var(--box-shadow);
     padding: 4em;
@@ -131,7 +248,7 @@ a:hover {
     border-radius: 25%;    
 }
 .count-container h1 {
-    color: var(--color-secondary);
+    color: var(--stats-card-header);
     font-size: 2.5em;
     font-weight: 700;
 }
@@ -142,17 +259,23 @@ a:hover {
 .count-container .links {
     position: relative;
 }
+.count-container .links a {
+    color: var(--stats-card-a-1);
+}
+.count-container .links a:hover {
+    color: var(--stats-card-a-2);
+}
 .count-container .links a img {
     height: 1.125em;
     width: 1.125em;
     transform: translateY(0.25em);
-    filter: invert(55%) sepia(9%) saturate(3429%) hue-rotate(219deg) brightness(78%) contrast(92%);
+    filter: var(--stats-card-filter-1);
 }
 .count-container .links a img:hover {
-    filter: invert(15%) sepia(8%) saturate(5142%) hue-rotate(210deg) brightness(87%) contrast(88%);
+    filter: var(--stats-card-filter-2);
 }
 .about-me-container::before {
-    background-image: linear-gradient(var(--color-secondary), var(--gradient-2));
+    background-image: linear-gradient(var(--gradient), var(--gradient-1));
     content: "";
     height: 100%;
     position: absolute;
@@ -180,7 +303,7 @@ a:hover {
     border-radius: 15%;
     border-width: 0.2em;
     border-style: solid;
-    border-color: var(--color-primary);
+    border-color: var(--bold-color);
 }
 .about-me-container .sidebar .top-image {
     padding-right: 1em;
@@ -217,10 +340,10 @@ a:hover {
     position: relative;
 }
 .about-me-container .header-container h1 span {
-    color: var(--color-primary);
+    color: var(--bold-color);
   }
 .about-me-container .header-container .line {
-    background: linear-gradient(90deg,var(--color-primary),var(--color-secondary));
+    background: linear-gradient(90deg,var(--line-color-1),var(--line-color-2));
     flex: 1;
     height: 2px;
     margin: auto;
@@ -236,11 +359,11 @@ a:hover {
     font-size: 1.25em;
 }
 .about-me-container .content b {
-    color: var(--color-secondary)
+    color: var(--bold-color)
 }
 
 .meet-container::before {
-    background-image: linear-gradient(var(--gradient-2), var(--gradient-3));
+    background-image: linear-gradient(var(--gradient-1), var(--gradient-2));
     content: "";
     height: 100%;
     position: absolute;
@@ -271,7 +394,7 @@ a:hover {
     border-width: 0.2em;
     border-style: solid;
     transition: transform 0.5s ease;
-    border-color: var(--color-secondary);
+    border-color: var(--bold-color);
 }
 .meet-container .sidebar .pfp {
     padding-right: 0em;
@@ -306,7 +429,7 @@ transform: scale(1.1);
     margin-bottom: .25em;
 }
 .meet-container .header-container h1::before {
-    background-color: var(--color-primary);
+    background-color: var(--bold-color);
     bottom: -.25em;
     content: "";
     height: .25em;
@@ -315,7 +438,7 @@ transform: scale(1.1);
     width: 90%;
 }
 .meet-container .header-container h1 span {
-    color: var(--color-primary);
+    color: var(--bold-color);
 }
 .meet-container.content {
     grid-gap: 1em;
@@ -329,10 +452,10 @@ transform: scale(1.1);
 }
 .meet-container .content b {
     text-decoration: none;
-    color: var(--color-primary)
+    color: var(--bold-color)
 }
 .meet-container .content .team-title {
-    color: var(--color-primary)
+    color: var(--bold-color)
 }
 
 .meet-container .section {
@@ -366,7 +489,7 @@ transform: scale(1.1);
     display: flex;
     flex-direction: column;
     justify-content: center;
-    color: var(--color-secondary)
+    color: var(--card-text-color)
 }
 .meet-container .card .text .name {
     font-size: 20px;
@@ -378,7 +501,7 @@ transform: scale(1.1);
 }
 
 .contact-container::before {
-    background-image: linear-gradient(var(--gradient-3), var(--color-primary));
+    background-image: linear-gradient(var(--gradient-2), var(--gradient-3));
     content: "";
     height: 100%;
     position: absolute;
@@ -421,13 +544,13 @@ transform: scale(1.1);
     color: var(--color-primary);
   }
 .contact-container .header-container .before-line {
-    background: linear-gradient(90deg,var(--color-primary),var(--color-secondary));
+    background: linear-gradient(90deg,var(--line-color-1),var(--line-color-2));
     flex: 1;
     height: 2px;
     margin: auto;
 }
 .contact-container .header-container .after-line {
-    background: linear-gradient(90deg,var(--color-secondary),var(--color-primary));
+    background: linear-gradient(90deg,var(--line-color-2),var(--line-color-1));
     flex: 1;
     height: 2px;
     margin: auto;
@@ -443,5 +566,5 @@ transform: scale(1.1);
     font-size: 1.25em;
 }
 .contact-container .content b {
-    color: var(--color-primary)
+    color: var(--bold-color)
 }
