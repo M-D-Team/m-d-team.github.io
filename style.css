@@ -215,7 +215,8 @@ display: none;
 }
 .front-heading-container .whitespace {
     align-items: center;
-    background: var(--whitespace-bg) center center;
+    /* background: var(--whitespace-bg) center center; */
+    background: var(--gradient-1);
     display: flex;
     justify-content: center;
     position: relative;
@@ -232,7 +233,7 @@ display: none;
     grid-gap: 5em;
     display: grid;
     gap: 5em;
-    grid-template-columns: repeat(2,1fr); /* This is the amount of mod panels */
+    grid-template-columns: repeat(1,1fr); /* This is the amount of mod panels */
     width: 100%;
 }
 .count-container {
